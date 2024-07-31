@@ -1,2 +1,4 @@
+import first_module
+
 if __name__ == '__main__':
-    print('Hello world')
+    print(first_module.summary())
