@@ -1,155 +1,93 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
+import pandas as pd
 
 
-class AbstractFactory(ABC):
-    """
-    Интерфейс Абстрактной Фабрики объявляет набор методов, которые возвращают
-    различные абстрактные продукты. Эти продукты называются семейством и связаны
-    темой или концепцией высокого уровня. Продукты одного семейства обычно могут
-    взаимодействовать между собой. Семейство продуктов может иметь несколько
-    вариаций, но продукты одной вариации несовместимы с продуктами другой.
-    """
+
+class AbstractSerializator(ABC):
     @abstractmethod
-    def create_product_a(self) -> AbstractProductA:
+    def create_serializator_xml(self) -> AbstractSerializatorXML:
         pass
 
     @abstractmethod
-    def create_product_b(self) -> AbstractProductB:
+    def create_serializator_json(self) -> AbstractSerializatorJSON:
         pass
 
 
-class ConcreteFactory1(AbstractFactory):
-    """
-    Конкретная Фабрика производит семейство продуктов одной вариации. Фабрика
-    гарантирует совместимость полученных продуктов. Обратите внимание, что
-    сигнатуры методов Конкретной Фабрики возвращают абстрактный продукт, в то
-    время как внутри метода создается экземпляр конкретного продукта.
-    """
+class SerializatorForCSV(AbstractSerializator):
+    def create_serializator_xml(self) -> AbstractSerializatorXML:
+        return SerializatorCSV4XML()
 
-    def create_product_a(self) -> AbstractProductA:
-        return ConcreteProductA1()
-
-    def create_product_b(self) -> AbstractProductB:
-        return ConcreteProductB1()
+    def create_serializator_json(self) -> AbstractSerializatorJSON:
+        return SerializatorCSV4JSON()
 
 
-class ConcreteFactory2(AbstractFactory):
-    """
-    Каждая Конкретная Фабрика имеет соответствующую вариацию продукта.
-    """
+class SerializatorForXLS(AbstractSerializator):
+    def create_serializator_xml(self) -> AbstractSerializatorXML:
+        return SerializatorXLS4XML()
 
-    def create_product_a(self) -> AbstractProductA:
-        return ConcreteProductA2()
-
-    def create_product_b(self) -> AbstractProductB:
-        return ConcreteProductB2()
+    def create_serializator_json(self) -> AbstractSerializatorJSON:
+        return SerializatorXLS4JSON()
 
 
-class AbstractProductA(ABC):
-    """
-    Каждый отдельный продукт семейства продуктов должен иметь базовый интерфейс.
-    Все вариации продукта должны реализовывать этот интерфейс.
-    """
-
+class AbstractSerializatorXML(ABC):
     @abstractmethod
-    def useful_function_a(self) -> str:
-        pass
-
-
-"""
-Конкретные продукты создаются соответствующими Конкретными Фабриками.
-"""
-
-
-class ConcreteProductA1(AbstractProductA):
-    def useful_function_a(self) -> str:
-        return "The result of the product A1."
-
-
-class ConcreteProductA2(AbstractProductA):
-    def useful_function_a(self) -> str:
-        return "The result of the product A2."
-
-
-class AbstractProductB(ABC):
-    """
-    Базовый интерфейс другого продукта. Все продукты могут взаимодействовать
-    друг с другом, но правильное взаимодействие возможно только между продуктами
-    одной и той же конкретной вариации.
-    """
-    @abstractmethod
-    def useful_function_b(self) -> None:
-        """
-        Продукт B способен работать самостоятельно...
-        """
+    def to_xml(self, path_file: str) -> str:
         pass
 
     @abstractmethod
-    def another_useful_function_b(self, collaborator: AbstractProductA) -> None:
-        """
-        ...а также взаимодействовать с Продуктами A той же вариации.
-
-        Абстрактная Фабрика гарантирует, что все продукты, которые она создает,
-        имеют одинаковую вариацию и, следовательно, совместимы.
-        """
+    def from_xml(self) -> str:
         pass
 
 
-"""
-Конкретные Продукты создаются соответствующими Конкретными Фабриками.
-"""
+class SerializatorCSV4XML(AbstractSerializatorXML):
+    def to_xml(self, path_file: str) -> str:
+        return 'A'
+
+    def from_xml(self) -> str:
+        pass
 
 
-class ConcreteProductB1(AbstractProductB):
-    def useful_function_b(self) -> str:
-        return "The result of the product B1."
+class SerializatorXLS4XML(AbstractSerializatorXML):
+    def to_xml(self, path_file: str) -> str:
+        excel_data = pd.read_excel(path_file, header=None)
+        data = pd.DataFrame(excel_data)
+        return data
 
-    """
-    Продукт B1 может корректно работать только с Продуктом A1. Тем не менее, он
-    принимает любой экземпляр Абстрактного Продукта А в качестве аргумента.
-    """
-
-    def another_useful_function_b(self, collaborator: AbstractProductA) -> str:
-        result = collaborator.useful_function_a()
-        return f"The result of the B1 collaborating with the ({result})"
+    def from_xml(self) -> str:
+        pass
 
 
-class ConcreteProductB2(AbstractProductB):
-    def useful_function_b(self) -> str:
-        return "The result of the product B2."
+class AbstractSerializatorJSON(ABC):
+    @abstractmethod
+    def to_xml(self) -> str:
+        pass
 
-    def another_useful_function_b(self, collaborator: AbstractProductA):
-        """
-        Продукт B2 может корректно работать только с Продуктом A2. Тем не менее,
-        он принимает любой экземпляр Абстрактного Продукта А в качестве
-        аргумента.
-        """
-        result = collaborator.useful_function_a()
-        return f"The result of the B2 collaborating with the ({result})"
+    @abstractmethod
+    def from_xml(self) -> str:
+        pass
 
 
-def client_code(factory: AbstractFactory) -> None:
-    """
-    Клиентский код работает с фабриками и продуктами только через абстрактные
-    типы: Абстрактная Фабрика и Абстрактный Продукт. Это позволяет передавать
-    любой подкласс фабрики или продукта клиентскому коду, не нарушая его.
-    """
-    product_a = factory.create_product_a()
-    product_b = factory.create_product_b()
+class SerializatorCSV4JSON(AbstractSerializatorJSON):
+    def to_xml(self) -> str:
+        pass
 
-    print(f"{product_b.useful_function_b()}")
-    print(f"{product_b.another_useful_function_b(product_a)}", end="")
+    def from_xml(self) -> str:
+        pass
+
+
+class SerializatorXLS4JSON(AbstractSerializatorJSON):
+    def to_xml(self) -> str:
+        pass
+
+    def from_xml(self) -> str:
+        pass
+
+
+def client_code(serializ_factory: AbstractSerializator) -> None:
+    serializ_xml = serializ_factory.create_serializator_xml()
+    print(serializ_xml.to_xml('./list_xls.xls'))
 
 
 if __name__ == "__main__":
-    """
-    Клиентский код может работать с любым конкретным классом фабрики.
-    """
-    print("Client: Testing client code with the first factory type:")
-    client_code(ConcreteFactory1())
-
-    print("\n")
-
-    print("Client: Testing the same client code with the second factory type:")
-    client_code(ConcreteFactory2())
+    client_code(SerializatorForXLS())
