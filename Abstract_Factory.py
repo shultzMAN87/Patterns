@@ -85,14 +85,6 @@ class SerializatorXLS4XML(AbstractSerializatorXML):
     def __init__(self, file_path):
         super().__init__(file_path)
 
-    def dict_to_xml(tag, d):
-        element = ET.Element(tag)
-        for key, val in d.items():
-            child = ET.Element(key)
-            child.text = str(val)
-            element.append(child)
-        return element
-
     def to_xml(self) -> str:
         xls_data = pd.read_excel(self.file_path, header=None)
         xls_data.columns = ['product', 'quantity']
