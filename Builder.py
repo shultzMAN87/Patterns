@@ -52,8 +52,8 @@ class GamingComputerBuilder(ComputerBuilder):
 
 
 class Director:
-    def __init__(self, builder: ComputerBuilder):
-        self._builder = builder
+    def __init__(self, builder_: ComputerBuilder):
+        self._builder = builder_
 
     def build_computer(self):
         self._builder.set_cpu()
@@ -73,7 +73,8 @@ class Computer:
         self.power_supply = None
 
     def __str__(self):
-        return f"Computer(cpu={self.cpu}, gpu={self.gpu}, ram={self.ram}, storage={self.storage}, power_supply={self.power_supply})"
+        return (f"Computer(cpu={self.cpu}, gpu={self.gpu},"
+                f"ram={self.ram}, storage={self.storage}, power_supply={self.power_supply})")
 
 
 if __name__ == "__main__":
@@ -82,4 +83,3 @@ if __name__ == "__main__":
 
     gaming_computer = director.build_computer()
     print(gaming_computer)
-
