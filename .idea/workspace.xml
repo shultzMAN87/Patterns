@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9b36506-6df4-4e0f-960b-3b98d2f81715" name="Changes" comment="third">
+    <list default="true" id="f9b36506-6df4-4e0f-960b-3b98d2f81715" name="Changes" comment="12/08/2024-1">
+      <change afterPath="$PROJECT_DIR$/Prototype.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Builder.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,7 @@
     "Python.Abstract_Factory.executor": "Run",
     "Python.Builder.executor": "Run",
     "Python.Factory_Method.executor": "Run",
+    "Python.Prototype.executor": "Run",
     "Python.first_module.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -161,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722412205982</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="12/08/2024-1">
+      <option name="closed" value="true" />
+      <created>1723448633967</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1723448633967</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,6 +213,7 @@
     <MESSAGE value="first" />
     <MESSAGE value="second" />
     <MESSAGE value="third" />
-    <option name="LAST_COMMIT_MESSAGE" value="third" />
+    <MESSAGE value="12/08/2024-1" />
+    <option name="LAST_COMMIT_MESSAGE" value="12/08/2024-1" />
   </component>
 </project>
