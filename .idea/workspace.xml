@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9b36506-6df4-4e0f-960b-3b98d2f81715" name="Changes" comment="12/08/2024-1">
-      <change afterPath="$PROJECT_DIR$/Decorator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Facade.py" afterDir="false" />
+    <list default="true" id="f9b36506-6df4-4e0f-960b-3b98d2f81715" name="Changes" comment="15/08/2024-1">
+      <change afterPath="$PROJECT_DIR$/Bridge.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +48,7 @@
   "keyToString": {
     "Python.Abstr_Fact.executor": "Run",
     "Python.Abstract_Factory.executor": "Run",
+    "Python.Bridge.executor": "Run",
     "Python.Builder.executor": "Run",
     "Python.Decorator.executor": "Run",
     "Python.Facade.executor": "Run",
@@ -58,7 +58,7 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "File.Encoding"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -173,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723448633967</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="15/08/2024-1">
+      <option name="closed" value="true" />
+      <created>1723678189494</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1723678189494</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,6 +225,7 @@
     <MESSAGE value="second" />
     <MESSAGE value="third" />
     <MESSAGE value="12/08/2024-1" />
-    <option name="LAST_COMMIT_MESSAGE" value="12/08/2024-1" />
+    <MESSAGE value="15/08/2024-1" />
+    <option name="LAST_COMMIT_MESSAGE" value="15/08/2024-1" />
   </component>
 </project>
