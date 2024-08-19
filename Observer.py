@@ -64,4 +64,4 @@ if __name__ == "__main__":
     news_publisher.attach(subscriber2)
     news_publisher.attach(mobile_app_subscriber)
 
-    news_publisher.add_news("New Python version released!")
+    # news_publisher.add_news("New Python version released!")
