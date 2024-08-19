@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9b36506-6df4-4e0f-960b-3b98d2f81715" name="Changes" comment="15/08/2024-2">
-      <change afterPath="$PROJECT_DIR$/Chain_Of_Responsibility.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Observer.py" afterDir="false" />
+    <list default="true" id="f9b36506-6df4-4e0f-960b-3b98d2f81715" name="Changes" comment="second">
+      <change afterPath="$PROJECT_DIR$/Iterator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Mediator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Proxy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,11 +46,10 @@
     "Python.Adapter.executor": "Run",
     "Python.Bridge.executor": "Run",
     "Python.Builder.executor": "Run",
-    "Python.Chain_Of_Responsibility.executor": "Run",
     "Python.Composite.executor": "Run",
     "Python.Factory_Method.executor": "Run",
     "Python.Flyweight.executor": "Run",
-    "Python.Observer.executor": "Run",
+    "Python.Iterator.executor": "Run",
     "Python.Singleton.executor": "Debug",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -126,15 +126,7 @@
       <option name="project" value="LOCAL" />
       <updated>1722411723510</updated>
     </task>
-    <task id="LOCAL-00004" summary="15/08/2024-2">
-      <option name="closed" value="true" />
-      <created>1723728228230</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1723728228230</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,8 +173,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first" />
     <MESSAGE value="second" />
-    <MESSAGE value="15/08/2024-2" />
-    <option name="LAST_COMMIT_MESSAGE" value="15/08/2024-2" />
+    <option name="LAST_COMMIT_MESSAGE" value="second" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
